@@ -1,0 +1,47 @@
+@mixin clearfix {
+  &:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+}
+
+// centrer verticalement et/ou horizontalement un élement
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+
+// antialiasing mode pour le rendu des fonts
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// media queries
+@mixin screen($canvas) {
+  @if $canvas == small {
+   @media only screen and (min-width: $small) { @content; }
+  }
+  @else if $canvas == medium {
+   @media only screen and (min-width: $medium) { @content; }
+  }
+  @else if $canvas == large {
+   @media only screen and (min-width: $large) { @content; }
+  }
+}

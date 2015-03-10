@@ -1,0 +1,44 @@
+// Importation
+@import "reset";
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/layout";
+
+// Base
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+}
+
+body {
+    font: {
+        size: 1.6rem;
+        family: $primary-font;
+    }
+    color: $primary-color;
+}
+
+a {
+    color: $secondary-color;
+    text-decoration: none;
+}
+
+img,
+embed,
+object,
+video,
+svg {
+    max-width: 100%;
+}
+
+input,
+textarea {
+    font-family: $primary-font;
+    font-size: 1.6rem;
+}
